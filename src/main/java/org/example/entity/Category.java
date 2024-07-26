@@ -2,22 +2,22 @@ package org.example.entity;
 
 import javax.persistence.*;
 import java.util.Set;
-
+//TODO: continue from entity
     @Entity
     public class Category {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long categoryID;
+        private Integer categoryID;
 
         @Column(nullable = false)
         private String categoryName;
 
         // Getters and setters
-        public Long getCategoryID() {
+        public Integer getCategoryID() {
             return categoryID;
         }
 
-        public void setCategoryID(Long categoryID) {
+        public void setCategoryID(Integer categoryID) {
             this.categoryID = categoryID;
         }
 
@@ -29,4 +29,4 @@ import java.util.Set;
             this.categoryName = categoryName;
         }
     }
-    
+
