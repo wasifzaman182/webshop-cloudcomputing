@@ -1,8 +1,13 @@
 package org.example.service;
 
-import org.example.entity.Category;
+import org.example.RequestAndResponse.CategoryRequest;
+import org.example.entity.CategoryEntity;
+import org.springframework.stereotype.Service;
 
+import java.net.CacheRequest;
+
+@Service
 public interface ICategory {
 
-    public void save(Category c);
+    CategoryEntity save(CategoryRequest request);
 }
