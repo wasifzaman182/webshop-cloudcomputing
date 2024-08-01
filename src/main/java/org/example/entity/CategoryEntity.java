@@ -3,7 +3,9 @@ package org.example.entity;
 import lombok.*;
 
 import javax.persistence.*;
-    @Entity
+import java.util.Set;
+
+@Entity
     @Builder
     @AllArgsConstructor
     @NoArgsConstructor
@@ -18,6 +20,8 @@ import javax.persistence.*;
         @Column(nullable = false)
         private String categoryName;
 
+        @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+        private Set<ProductEntity> products;
 
     }
 
