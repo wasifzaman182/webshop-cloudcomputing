@@ -9,6 +9,6 @@ import lombok.Setter;
 @Setter
 @Getter
 public class CategoryRequest {
-    @NotNull
     private String categoryName;
+    private Integer id;
 }
