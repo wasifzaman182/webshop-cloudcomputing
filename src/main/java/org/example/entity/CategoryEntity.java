@@ -21,7 +21,7 @@ import java.util.Set;
         private String categoryName;
 
         @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-        private Set<ProductEntity> products;
+        private Set<ProductManagementEntity> products;
 
     }
 
