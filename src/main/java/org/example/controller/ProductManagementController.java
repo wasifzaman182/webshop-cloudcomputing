@@ -43,7 +43,7 @@ public class ProductManagementController {
         productManagement.deleteProduct(request.getProductId());
     }
 
-    @PostMapping(value = "/updateProduct")
+    @PutMapping(value = "/updateProduct")
     public ProductManagementEntity updateProduct(ProductManagementRequest request){
         ProductManagementEntity entity = productManagement.updateProduct(request);
 

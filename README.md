@@ -8,3 +8,8 @@
 # Step 1: Clone the Repo
   git clone: https://github.com/wasifzaman182/webshop-cloudcomputing.git
 
+
+//TODO:\
+        customer api testing \
+        stripe integration testing
+

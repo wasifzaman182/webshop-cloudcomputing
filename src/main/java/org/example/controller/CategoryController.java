@@ -21,7 +21,7 @@ public class CategoryController {
 
     }
 
-    @PostMapping(value = "/update")
+    @PutMapping(value = "/update")
     public CategoryEntity updateCategory(@RequestBody CategoryRequest request){
         return  category.update(request);
     }
