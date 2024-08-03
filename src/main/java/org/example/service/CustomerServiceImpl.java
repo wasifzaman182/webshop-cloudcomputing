@@ -22,7 +22,7 @@ public class CustomerServiceImpl implements ICustomer{
     }
 
     @Override
-    public Optional<CustomerEntity> getCustomerById(Long customerId) {
+    public Optional<CustomerEntity> getCustomerById(Integer customerId) {
         return customerRepository.findById(customerId);
     }
 
@@ -46,7 +46,7 @@ public class CustomerServiceImpl implements ICustomer{
     }
 
     @Override
-    public void deleteCustomer(Long customerId) {
+    public void deleteCustomer(Integer customerId) {
         customerRepository.deleteById(customerId);
     }
 }

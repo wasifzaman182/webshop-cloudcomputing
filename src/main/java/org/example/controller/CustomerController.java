@@ -17,30 +17,30 @@ public class CustomerController {
     @Autowired
     private CustomerServiceImpl customerService;
 
-    @PostMapping
+    @PostMapping("/saveCustomer")
     public CustomerEntity createCustomer(@RequestBody CustomerRequest customer) {
         return customerService.createCustomer(customer);
     }
 
-    @GetMapping("/{customerId}")
+    @GetMapping("/getCustomer")
     public Optional<CustomerEntity> getCustomerById(@RequestBody CustomerRequest request) {
-        Long id = request.getCustomerId();
+        Integer id = request.getCustomerId();
         return customerService.getCustomerById(id);
     }
 
-    @GetMapping
+    @GetMapping("/getAllCustomer")
     public List<CustomerEntity> getAllCustomers() {
         return customerService.getAllCustomers();
     }
 
-    @PutMapping("/customerId")
+    @PutMapping("/updateCustomer")
     public CustomerEntity updateCustomer(@RequestBody CustomerEntity updatedCustomer) {
         return customerService.updateCustomer(updatedCustomer);
     }
 
-    @DeleteMapping("/customerId")
+    @DeleteMapping("/deleteCustomer")
     public void deleteCustomer(@RequestBody CustomerRequest request) {
-        Long customerId = request.getCustomerId();
+        Integer customerId = request.getCustomerId();
         customerService.deleteCustomer(customerId);
     }
 }

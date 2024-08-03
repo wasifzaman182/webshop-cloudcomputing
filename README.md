@@ -11,5 +11,8 @@
 
 //TODO:\
         customer api testing \
-        stripe integration testing
-
+        stripe integration testing \
+         paypal integration \
+        payment insertion in DB
+        
+        

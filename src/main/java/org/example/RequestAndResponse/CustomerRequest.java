@@ -12,7 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class CustomerRequest {
 
-    private Long customerId;
+    private Integer customerId;
     private String firstName;
 
     private String lastName;

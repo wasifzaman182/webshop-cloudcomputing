@@ -11,8 +11,8 @@ import java.util.Optional;
 public interface ICustomer {
 
     CustomerEntity createCustomer(CustomerRequest customer);
-    Optional<CustomerEntity> getCustomerById(Long customerId);
+    Optional<CustomerEntity> getCustomerById(Integer customerId);
     List<CustomerEntity> getAllCustomers();
     CustomerEntity updateCustomer(CustomerEntity updatedCustomer);
-    void deleteCustomer(Long customerId);
+    void deleteCustomer(Integer customerId);
 }
