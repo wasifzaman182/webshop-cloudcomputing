@@ -26,6 +26,7 @@ public class ProductManagementImpl implements IProductManagement {
                     .imageUrl(productManagement.getImageUrl()).category(category).build();
 
             productManagementRepo.save(entity);
+            return entity;
 
         }
         return null;

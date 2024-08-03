@@ -17,10 +17,12 @@ public class ProductManagementController {
 
     @PostMapping(value = "/saveProduct")
     public ProductManagementEntity saveProduct(@RequestBody ProductManagementRequest request){
-        return productManagement.saveProduct(request);
+       ProductManagementEntity entity = productManagement.saveProduct(request);
+        return entity;
 
     }
 
+    //getting wrong response
     @GetMapping(value = "/getProduct")
     public ProductManagementEntity getProduct(@RequestBody ProductManagementRequest request){
         int id = request.getProductId();
@@ -29,6 +31,7 @@ public class ProductManagementController {
         return entity;
     }
 
+    //same issue as getProduct
     @GetMapping(value = "/getAll")
     public List<ProductManagementEntity> getAllProduct(){
         List<ProductManagementEntity> entities = productManagement.getAllProudct();
