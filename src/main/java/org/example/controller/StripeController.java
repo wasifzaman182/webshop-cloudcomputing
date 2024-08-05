@@ -2,7 +2,7 @@ package org.example.controller;
 
 import com.stripe.exception.StripeException;
 import com.stripe.model.Charge;
-import org.example.service.StripeService;
+import org.example.service.Impl.StripeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

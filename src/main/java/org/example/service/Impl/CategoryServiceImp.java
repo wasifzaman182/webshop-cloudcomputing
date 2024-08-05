@@ -1,8 +1,9 @@
-package org.example.service;
+package org.example.service.Impl;
 
 import org.example.RequestAndResponse.CategoryRequest;
 import org.example.entity.CategoryEntity;
 import org.example.repo.CategoryRepo;
+import org.example.service.IServices.ICategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CategoryServiceImp implements ICategory{
+public class CategoryServiceImp implements ICategory {
 
     @Autowired
     CategoryRepo categoryRepo;

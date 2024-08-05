@@ -2,7 +2,7 @@ package org.example.controller;
 
 import org.example.RequestAndResponse.SupplierRequest;
 import org.example.entity.SupplierEntity;
-import org.example.service.ISupplier;
+import org.example.service.IServices.ISupplier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

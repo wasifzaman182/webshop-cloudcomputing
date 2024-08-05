@@ -1,9 +1,8 @@
 package org.example.controller;
 
-import com.stripe.model.Customer;
 import org.example.RequestAndResponse.CustomerRequest;
 import org.example.entity.CustomerEntity;
-import org.example.service.CustomerServiceImpl;
+import org.example.service.Impl.CustomerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

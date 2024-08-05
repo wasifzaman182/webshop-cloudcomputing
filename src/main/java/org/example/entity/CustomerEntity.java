@@ -3,6 +3,8 @@ package org.example.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -27,4 +29,10 @@ public class CustomerEntity {
 
     @Column(name = "phone_number")
     private String phoneNumber;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<AddressEntity> addresses;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<OrderEntity> orders;
 }

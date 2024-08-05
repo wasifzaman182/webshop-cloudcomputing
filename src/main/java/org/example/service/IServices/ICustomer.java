@@ -1,4 +1,4 @@
-package org.example.service;
+package org.example.service.IServices;
 
 import org.example.RequestAndResponse.CustomerRequest;
 import org.example.entity.CustomerEntity;

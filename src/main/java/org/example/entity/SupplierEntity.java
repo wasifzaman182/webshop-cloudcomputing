@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -27,4 +28,7 @@ public class SupplierEntity {
 
     @Column(name = "contact_phone", length = 20)
     private String contactPhone;
+
+    @OneToMany(mappedBy = "supplier", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<InventoryEntity> inventories;
 }

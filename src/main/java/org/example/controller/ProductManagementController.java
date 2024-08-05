@@ -2,7 +2,7 @@ package org.example.controller;
 
 import org.example.RequestAndResponse.ProductManagementRequest;
 import org.example.entity.ProductManagementEntity;
-import org.example.service.IProductManagement;
+import org.example.service.IServices.IProductManagement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

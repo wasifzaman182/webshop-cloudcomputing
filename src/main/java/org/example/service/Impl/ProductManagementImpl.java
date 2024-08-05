@@ -1,9 +1,10 @@
-package org.example.service;
+package org.example.service.Impl;
 
 import org.example.RequestAndResponse.ProductManagementRequest;
 import org.example.entity.CategoryEntity;
 import org.example.entity.ProductManagementEntity;
 import org.example.repo.ProductManagementRepo;
+import org.example.service.IServices.IProductManagement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -14,10 +14,13 @@ public class CustomerRequest {
 
     private Integer customerId;
     private String firstName;
-
     private String lastName;
-
     private String email;
-
     private String phoneNumber;
+    private String street;
+    private String zipCode;
+    private String country;
+    private String state;
+    private String city;
+
 }

@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Getter
@@ -37,5 +38,11 @@ public class ProductManagementEntity {
 
     @Column(name = "image_URL")
     private String imageUrl;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<InventoryEntity> inventories;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<OrderItemEntity> orderItems;
 
 }

@@ -1,8 +1,9 @@
-package org.example.service;
+package org.example.service.Impl;
 
 import org.example.RequestAndResponse.SupplierRequest;
 import org.example.entity.SupplierEntity;
 import org.example.repo.SupplierRepository;
+import org.example.service.IServices.ISupplier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class SupplierServiceImp implements ISupplier{
+public class SupplierServiceImp implements ISupplier {
 
     @Autowired
     SupplierRepository supplierRepository;

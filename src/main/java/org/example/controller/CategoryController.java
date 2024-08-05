@@ -2,7 +2,7 @@ package org.example.controller;
 
 import org.example.RequestAndResponse.CategoryRequest;
 import org.example.entity.CategoryEntity;
-import org.example.service.ICategory;
+import org.example.service.IServices.ICategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
