@@ -7,9 +7,11 @@ import org.example.entity.SupplierEntity;
 import org.example.repo.InventoryRepository;
 import org.example.service.IServices.IInventory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class InventoryServiceImpl implements IInventory {
     @Autowired
     InventoryRepository inventoryRepository;
