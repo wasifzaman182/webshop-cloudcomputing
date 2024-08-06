@@ -6,6 +6,8 @@ import org.example.entity.CustomerEntity;
 import org.example.repo.AddressRepository;
 import org.example.repo.CustomerRepository;
 import org.example.service.IServices.ICustomer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,8 @@ import java.util.List;
 import java.util.Optional;
 @Service
 public class CustomerServiceImpl implements ICustomer {
+
+    private static final Logger logger = LoggerFactory.getLogger(CustomerServiceImpl.class);
 
     @Autowired
     CustomerRepository customerRepository;

@@ -5,6 +5,8 @@ import org.example.entity.CategoryEntity;
 import org.example.entity.ProductManagementEntity;
 import org.example.repo.ProductManagementRepo;
 import org.example.service.IServices.IProductManagement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,8 @@ import java.util.Optional;
 
 @Service
 public class ProductManagementImpl implements IProductManagement {
+
+    private static final Logger logger = LoggerFactory.getLogger(ProductManagementImpl.class);
 
     @Autowired
     private ProductManagementRepo productManagementRepo;

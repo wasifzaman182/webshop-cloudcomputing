@@ -6,6 +6,8 @@ import org.example.entity.ProductManagementEntity;
 import org.example.entity.SupplierEntity;
 import org.example.repo.InventoryRepository;
 import org.example.service.IServices.IInventory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,9 @@ import java.util.List;
 
 @Service
 public class InventoryServiceImpl implements IInventory {
+
+    private static final Logger logger = LoggerFactory.getLogger(InventoryServiceImpl.class);
+
     @Autowired
     InventoryRepository inventoryRepository;
 

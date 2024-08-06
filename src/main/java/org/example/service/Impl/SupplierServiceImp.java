@@ -4,6 +4,8 @@ import org.example.RequestAndResponse.SupplierRequest;
 import org.example.entity.SupplierEntity;
 import org.example.repo.SupplierRepository;
 import org.example.service.IServices.ISupplier;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,8 @@ import java.util.Optional;
 
 @Service
 public class SupplierServiceImp implements ISupplier {
+    private static final Logger logger = LoggerFactory.getLogger(SupplierServiceImp.class);
+
 
     @Autowired
     SupplierRepository supplierRepository;
