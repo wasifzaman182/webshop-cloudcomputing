@@ -1,8 +1,7 @@
 package org.example.entity;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -12,7 +11,9 @@ import java.sql.Timestamp;
 @Setter
 @Builder
 @Entity
-@Table(name = "order")
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "`order`")
 public class OrderEntity {
 
     @Id
@@ -22,6 +23,7 @@ public class OrderEntity {
 
     @ManyToOne
     @JoinColumn(name = "CustomerID", referencedColumnName = "CustomerID")
+    @JsonBackReference
     private CustomerEntity customer;
 
     @Column(name = "order_date", nullable = false)
@@ -39,9 +41,11 @@ public class OrderEntity {
 
     @ManyToOne
     @JoinColumn(name = "shipping_address_id", referencedColumnName = "AddressID")
+    @JsonBackReference
     private AddressEntity shippingAddress;
 
     @ManyToOne
     @JoinColumn(name = "billing_address_id", referencedColumnName = "AddressID")
+    @JsonBackReference
     private AddressEntity billingAddress;
 }

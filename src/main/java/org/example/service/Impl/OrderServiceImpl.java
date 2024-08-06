@@ -6,13 +6,18 @@ import org.example.entity.AddressEntity;
 import org.example.entity.CustomerEntity;
 import org.example.entity.OrderEntity;
 import org.example.entity.OrderItemEntity;
+import org.example.repo.AddressRepository;
+import org.example.repo.CustomerRepository;
 import org.example.repo.OrderRepository;
 import org.example.service.IServices.IOrder;
 import org.example.service.IServices.IOrderItem;
+import org.example.util.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Service
@@ -20,22 +25,30 @@ public class OrderServiceImpl implements IOrder {
 
     @Autowired
     OrderRepository orderRepository;
+    @Autowired
+    CustomerRepository customerRepository;
+    @Autowired
+    AddressRepository addressRepository;
 
     @Override
     public OrderEntity saveOrder(OrderRequest request) {
-        CustomerEntity customer= CustomerEntity.builder().customerId(request.getCustomerId()).build();
-        AddressEntity shipping = AddressEntity.builder().addressId(request.getShippingAddressId()).build();
-        AddressEntity billing = AddressEntity.builder().addressId(request.getBillingAddressId()).build();
+        System.out.println("customer id " + request.getCustomerId() );
+        CustomerEntity customer = customerRepository.findById(request.getCustomerId()).orElseThrow(() -> new RuntimeException("Customer not found"));
+        AddressEntity shipping = addressRepository.findById(request.getShippingAddressId()).orElseThrow(() -> new RuntimeException("Address not found"));
+        AddressEntity billing = addressRepository.findById(request.getBillingAddressId()).orElseThrow(()-> new RuntimeException("Billing address not found"));
 
-        OrderEntity order = OrderEntity.builder().orderDate(request.getOrderDate()).customer(customer).billingAddress(billing).shippingAddress(shipping)
-                .status(request.getStatus()).totalAmount(BigDecimal.valueOf(Long.valueOf(request.getTotalAmount()))).build();
-        return orderRepository.save(order);
+        OrderEntity order = OrderEntity.builder().orderDate(currentTimeStamp()).customer(customer).billingAddress(billing).shippingAddress(shipping)
+                .status(request.getStatus()).totalAmount(new BigDecimal(request.getTotalAmount())).build();
+
+         orderRepository.save(order);
+        return order;
     }
 
     @Override
     public OrderEntity getOrder(Integer id) {
 
-        return orderRepository.getById(id);
+         OrderEntity entity = orderRepository.getById(id);
+         return entity;
     }
 
     @Override
@@ -43,5 +56,12 @@ public class OrderServiceImpl implements IOrder {
 
         List<OrderEntity> list = orderRepository.findAll();
         return list;
+    }
+
+    public static Timestamp currentTimeStamp() {
+        Timestamp currentTimestamp = new Timestamp(System.currentTimeMillis());
+        System.out.println("Current Timestamp: " + currentTimestamp.getTime() + " milliseconds");
+        System.out.println("Formatted Timestamp: " + currentTimestamp.toString());
+        return currentTimestamp;
     }
 }

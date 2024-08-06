@@ -13,7 +13,7 @@ public class OrderRequest {
 
     private Integer id;
     private Integer customerId;
-    private Timestamp orderDate;
+    private String orderDate;
     private String status;
     private String totalAmount;
     private Integer shippingAddressId;

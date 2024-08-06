@@ -1,8 +1,7 @@
 package org.example.entity;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -11,6 +10,8 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "orderitem")
 public class OrderItemEntity {
 
@@ -26,6 +27,7 @@ public class OrderItemEntity {
 
     @ManyToOne
     @JoinColumn(name = "product_id", referencedColumnName = "ProductID")
+    @JsonBackReference
     private ProductManagementEntity product;
 
     @Column(name = "quantity", nullable = false)

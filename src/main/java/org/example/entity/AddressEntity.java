@@ -1,8 +1,7 @@
 package org.example.entity;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -10,6 +9,8 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "address")
 public class AddressEntity {
 
@@ -35,5 +36,6 @@ public class AddressEntity {
 
     @ManyToOne
     @JoinColumn(name = "CustomerID", referencedColumnName = "CustomerID")
+    @JsonBackReference
     private CustomerEntity customer;
 }

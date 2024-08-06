@@ -1,13 +1,14 @@
 package org.example.entity;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Setter
 @Builder
 @Table(name = "inventory")
@@ -20,10 +21,12 @@ public class InventoryEntity {
 
     @ManyToOne
     @JoinColumn(name = "ProductID", referencedColumnName = "ProductID")
+    @JsonBackReference
     private ProductManagementEntity product;
 
     @ManyToOne
     @JoinColumn(name = "SupplierID", referencedColumnName = "SupplierID")
+    @JsonBackReference
     private SupplierEntity supplier;
 
     @Column(name = "StockLevel")

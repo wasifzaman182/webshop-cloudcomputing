@@ -27,7 +27,7 @@ public class CustomerServiceImpl implements ICustomer {
         customerRepository.save(customerEntity);
 
         AddressEntity addressEntity = AddressEntity.builder().state(customer.getState()).city(customer.getCity()).zipCode(customer.getZipCode())
-                .country(customer.getCountry()).street(customer.getStreet()).build();
+                .country(customer.getCountry()).street(customer.getStreet()).customer(customerEntity).build();
 
         addressRepository.save(addressEntity);
 
