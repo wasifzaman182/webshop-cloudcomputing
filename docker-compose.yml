@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  webshop:
+    image: webshop
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      DB_HOST: mysqldb
+      DB_USER: CloudUser
+      DB_PASSWORD: Admin
+      DB_NAME: webshop_cloudcomputing
+    depends_on:
+      - mysqldb
+
+  mysqldb:
+    image: mysql:5.6
+    environment:
+      MYSQL_ROOT_PASSWORD: Admin
+      MYSQL_DATABASE: webshop_cloudcomputing
+      MYSQL_USER: CloudUser
+      MYSQL_PASSWORD: Admin
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./init-scripts:/docker-entrypoint-initdb.d
+
+volumes:
+  db-data:

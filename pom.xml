@@ -68,5 +68,6 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>webshop</finalName>
     </build>
 </project>
