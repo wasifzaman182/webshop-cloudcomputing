@@ -9,6 +9,7 @@ import org.example.entity.OrderItemEntity;
 import org.example.repo.AddressRepository;
 import org.example.repo.CustomerRepository;
 import org.example.repo.OrderRepository;
+import org.example.service.IServices.EmailService;
 import org.example.service.IServices.IOrder;
 import org.example.service.IServices.IOrderItem;
 import org.example.util.Util;
@@ -33,6 +34,8 @@ public class OrderServiceImpl implements IOrder {
     CustomerRepository customerRepository;
     @Autowired
     AddressRepository addressRepository;
+    @Autowired
+    private EmailService emailService;
 
     @Override
     public OrderEntity saveOrder(OrderRequest request) {
@@ -44,6 +47,13 @@ public class OrderServiceImpl implements IOrder {
         OrderEntity order = OrderEntity.builder().orderDate(currentTimeStamp()).customer(customer).billingAddress(billing).shippingAddress(shipping)
                 .status(request.getStatus()).totalAmount(new BigDecimal(request.getTotalAmount())).build();
 
+        String emailText = "Dear " + order.getCustomerName() + ",\n\n" +
+                "Thank you for your order of " + order.getProduct() + ".\n" +
+                "Your order amount is $" + order.getAmount() + ".\n\n" +
+                "Best regards,\nYour Company";
+        emailService.sendOrderConfirmationEmail(order.getCustomerEmail(), "Order Confirmation", emailText);
+       
+        
          orderRepository.save(order);
         return order;
     }
