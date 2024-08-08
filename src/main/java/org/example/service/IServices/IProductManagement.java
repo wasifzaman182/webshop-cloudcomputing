@@ -15,6 +15,5 @@ public interface IProductManagement {
     List<ProductManagementEntity> getAllProudct();
     ProductManagementEntity updateProduct(ProductManagementRequest productManagementRequest);
     void deleteProduct(Integer id);
-
-
+    public List<ProductManagementEntity> getProductsByCategoryId(int categoryId);
 }

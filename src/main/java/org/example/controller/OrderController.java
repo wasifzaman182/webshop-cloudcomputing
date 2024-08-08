@@ -21,8 +21,8 @@ public class OrderController {
     }
 
     @GetMapping(value = "/getOrder")
-    public OrderEntity getOrder(@RequestBody OrderRequest request){
-        return order.getOrder(request.getId());
+    public OrderEntity getOrder(@RequestParam("id") int orderId){
+        return order.getOrder(orderId);
     }
 
     @GetMapping(value = "/getAllOrder")

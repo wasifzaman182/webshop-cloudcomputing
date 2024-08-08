@@ -22,9 +22,8 @@ public class CustomerController {
     }
 
     @GetMapping("/getCustomer")
-    public Optional<CustomerEntity> getCustomerById(@RequestBody CustomerRequest request) {
-        Integer id = request.getCustomerId();
-        return customerService.getCustomerById(id);
+    public Optional<CustomerEntity> getCustomerById(@RequestParam("id") int customerId) {
+        return customerService.getCustomerById(customerId);
     }
 
     @GetMapping("/getAllCustomer")

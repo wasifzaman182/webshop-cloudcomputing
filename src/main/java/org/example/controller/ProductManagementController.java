@@ -24,9 +24,8 @@ public class ProductManagementController {
 
     //getting wrong response
     @GetMapping(value = "/getProduct")
-    public ProductManagementEntity getProduct(@RequestBody ProductManagementRequest request){
-        int id = request.getProductId();
-        ProductManagementEntity entity = productManagement.getProduct(id);
+    public ProductManagementEntity getProduct(@RequestParam("id") int productId){
+        ProductManagementEntity entity = productManagement.getProduct(productId);
 
         return entity;
     }
@@ -48,5 +47,10 @@ public class ProductManagementController {
         ProductManagementEntity entity = productManagement.updateProduct(request);
 
         return entity;
+    }
+
+    @GetMapping(value = "/getProductsByCategory")
+    public List<ProductManagementEntity> getProductsByCategory(@RequestParam("id") int categoryId) {
+        return productManagement.getProductsByCategoryId(categoryId);
     }
 }

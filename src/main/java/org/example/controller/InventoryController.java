@@ -22,8 +22,8 @@ public class InventoryController {
     }
 
     @GetMapping(value = "/getInventory")
-    public InventoryEntity getInventory(@RequestBody InventoryRequest request){
-        return inventory.getInventory(request.getId());
+    public InventoryEntity getInventory(@RequestParam("id") int id){
+        return inventory.getInventory(id);
     }
 
     @GetMapping(value = "/getAllInventory")

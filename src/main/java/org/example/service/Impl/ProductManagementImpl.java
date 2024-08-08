@@ -74,4 +74,11 @@ public class ProductManagementImpl implements IProductManagement {
             productManagementRepo.deleteById(id);
         }
     }
+
+    @Override
+    public List<ProductManagementEntity> getProductsByCategoryId(int categoryId) {
+        return productManagementRepo.findByCategory_CategoryID(categoryId);
+    }
+
+
 }

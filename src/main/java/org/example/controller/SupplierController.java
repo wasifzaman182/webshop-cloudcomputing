@@ -23,8 +23,8 @@ public class SupplierController {
     }
 
     @GetMapping("/getSupplier")
-    public ResponseEntity<SupplierEntity> getSupplierById(@RequestBody SupplierRequest request) {
-        Optional<SupplierEntity> supplier = supplierService.getSupplierById(request.getSupplierId());
+    public ResponseEntity<SupplierEntity> getSupplierById(@RequestParam("id") int supplierId) {
+        Optional<SupplierEntity> supplier = supplierService.getSupplierById(supplierId);
         if (supplier.isPresent()) {
             return ResponseEntity.ok(supplier.get());
         } else {
