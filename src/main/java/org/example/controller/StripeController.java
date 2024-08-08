@@ -4,13 +4,11 @@ import com.stripe.exception.StripeException;
 import com.stripe.model.Charge;
 import org.example.service.Impl.StripeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/payment")
+@CrossOrigin(origins = "http://localhost:3000")
 public class StripeController {
     @Autowired
     private StripeService stripeService;

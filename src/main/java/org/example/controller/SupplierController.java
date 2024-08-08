@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/supplier")
+@CrossOrigin(origins = "http://localhost:3000")
 public class SupplierController {
 
     @Autowired
